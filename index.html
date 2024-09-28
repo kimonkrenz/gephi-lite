@@ -49,5 +49,23 @@
       })();
     </script>
     <!-- End Matomo Code -->
+    <!-- Add a Script to Fetch and Load the GraphML -->
+    <script>
+      // Fetch the GraphML file and load it into Gephi-lite
+      fetch('https://raw.githubusercontent.com/kimonkrenz/graphs/refs/heads/main/segregation_term_network_online.graphml')
+        .then(response => response.text())
+        .then(data => {
+          const parser = new DOMParser();
+          const graphML = parser.parseFromString(data, 'text/xml');
+
+          // Assuming Gephi-lite has a function to load GraphML from a string
+          // Replace this with the actual function to load a graph in Gephi-lite
+          window.loadGraphFromGraphML(graphML);
+        })
+        .catch(error => {
+          console.error('Error loading the graph:', error);
+        });
+    </script>
+    <!-- End Fetch and Load the GraphML -->
   </body>
 </html>
