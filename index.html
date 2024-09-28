@@ -49,5 +49,26 @@
       })();
     </script>
     <!-- End Matomo Code -->
+    <!-- Custom Graph Loader -->
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Automatically fetch the .graphml file from the URL on startup
+  const graphFile = {
+    type: "remote",
+    url: 'https://raw.githubusercontent.com/kimonkrenz/graphs/refs/heads/main/segregation_term_network_online.graphml',
+    filename: 'segregation_term_network_online.graphml'
+  };
+
+  // Call the function to load the remote file
+  window.addRemoteFile(graphFile)
+    .then(() => {
+      console.log('Graph successfully loaded');
+    })
+    .catch(error => {
+      console.error('Error loading the graph:', error);
+    });
+});
+    </script>
+    <!-- End Custom Graph Loader -->
   </body>
 </html>
